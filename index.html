@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Daniel Suissa</title>
-  <link rel="stylesheet" href="res/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
   <link href="res/css/style.css" rel="stylesheet">
@@ -17,7 +17,7 @@
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -35,7 +35,18 @@
         </div><!--/.container-fluid -->
       </nav>
         <div class="row">
-        <div class="col-md-8">
+          <div class="col-sm-4 col-sm-push-8">
+            <div class="circular"></div>
+            <div id="SMLinks">
+              <a class="smicon" href="https://www.linkedin.com/in/daniel-suissa-690823113"><img src="http://daniel-suissa.github.io/res/img/linkedin_4096_black.png" alt="linkedin icon" /></a>
+              <a class="smicon" href="https://github.com/daniel-suissa"><img src="http://daniel-suissa.github.io/res/img/Octicons-mark-github.svg.png" alt="github icon" /></a>
+              <a class="smicon" href="https://www.facebook.com/daniel.suissa.90"><img src="http://daniel-suissa.github.io/res/img/facebook-xxl.png" alt="facebook icon" /></a>
+            </div>
+          <div class="resume-button">
+          <a href="#" class="text-uppercase">Resume</a>
+          </div>
+        </div>
+          <div class="col-sm-8 col-sm-pull-4">
             <h1>About</h1>
           <div class="quickInfo">
             <img src="http://daniel-suissa.github.io/res/img/school1.png" alt="school icon">
@@ -50,21 +61,14 @@
             <div id="sctxt">C++, Python, HTML/CSS</div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="circular"></div>
-          <div id="SMLinks">
-            <a class="smicon" href="https://www.linkedin.com/in/daniel-suissa-690823113"><img src="http://daniel-suissa.github.io/res/img/linkedin_4096_black.png" alt="linkedin icon" /></a>
-            <a class="smicon" href="https://github.com/daniel-suissa"><img src="http://daniel-suissa.github.io/res/img/Octicons-mark-github.svg.png" alt="github icon" /></a>
-            <a class="smicon" href="https://www.facebook.com/daniel.suissa.90"><img src="http://daniel-suissa.github.io/res/img/facebook-xxl.png" alt="facebook icon" /></a>
-          </div>
-          <div class="resume-button">
-          <a href="#" class="text-uppercase">Resume</a>
-        </div>
-        </div>
       </div>
       <div class="about-text">This is a text about me that I should prbly start writing. It should be about 1 paragraph long and describe who I am and my hopes and dreams. By this point I'm just writing to fill up space. Space...can we really "fill up" space? physically for every atom there's a huge amount of vaccum, so really even the space that we're filling is empty. Ok, I think that's about enough for now.
       </div>
     </div> <!-- /container -->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>
