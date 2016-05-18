@@ -6,9 +6,12 @@
     font-weight: bold;
 }
 .navbar-brand{
-    font-size: 30pt;
+    font-size: 40pt;
     font-weight: bold;
     margin-right: 50px;
+}
+.navbar-brand a{
+
 }
 
 .navbar-nav > li > a, .navbar-brand {
@@ -33,6 +36,7 @@
     border-left-color: transparent;
     border-top-color: transparent;
     border-right-color: transparent;
+
 }
 h1{
     margin-bottom: 50px;
@@ -40,13 +44,17 @@ h1{
 }
 #sctxt{
     margin-top: 25px;
-    margin-left: 25px;
+    margin-left: 15px;
     font-size: 14pt;
     font-weight: 600;
 }
 .quickInfo{
     display: flex;
     margin-bottom: 50px;
+}
+.quickInfo img{
+    width:70px; /* you can use % */
+    height: 70px;
 }
 .circular {
     margin-top: 40px;
@@ -59,16 +67,25 @@ h1{
     }
 #SMLinks{
     margin-top:20px;
+    display: flex;
+    margin-left:25px;
+}
+#SMLinks a img{
+    width:50px; /* you can use % */
+    height: auto;
 }
 .smicon{
-    margin-right: 15px;
+    margin-right: 20px;
+    max-width: 50px;
+    max-height: 50px;
 }
 .resume-button{
     margin-top: 20px;
-    background-color: grey;
+    background-color: #ECF0F1;
+    max-width: 300px;
 }
 .resume-button a{
     color: black;
-    font-size: 18pt;
-    font-weight: bold;
+    font-size: 22pt;
+    font-weight: 900;
 }
