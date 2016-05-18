@@ -12,7 +12,7 @@
 .navbar-brand{
     font-size: 40pt;
     font-weight: bold;
-    margin-right: 50px;
+    margin-right: 0px;
 }
 .navbar-nav > li > a, .navbar-brand {
     margin-top:20px !important;
