@@ -1,0 +1,74 @@
+*{
+    font-family: 'Poiret One', cursive;
+}
+.navbar-nav{
+    font-size: 17pt;
+    font-weight: bold;
+}
+.navbar-brand{
+    font-size: 30pt;
+    font-weight: bold;
+    margin-right: 50px;
+}
+
+.navbar-nav > li > a, .navbar-brand {
+    margin-top:20px !important;
+    padding-top:20px !important;
+    margin-bottom:10px !important;
+    height: 80px;
+}
+.navbar-default {
+  border-bottom:
+}
+
+.navbar {min-height:28px !important;}
+.menulinks{
+    margin-left: 70px;
+    border-left: solid;
+    border-left-width: 1pt;
+}
+
+.navbar{
+    background-color: white;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+}
+h1{
+    margin-bottom: 50px;
+
+}
+#sctxt{
+    margin-top: 25px;
+    margin-left: 25px;
+    font-size: 14pt;
+    font-weight: 600;
+}
+.quickInfo{
+    display: flex;
+    margin-bottom: 50px;
+}
+.circular {
+    margin-top: 40px;
+    width: 250px;
+    height: 250px;
+    border-radius: 125px;
+    -webkit-border-radius: 125px;
+    -moz-border-radius: 125px;
+    background: url(http://placekitten.com/250/250) no-repeat;
+    }
+#SMLinks{
+    margin-top:20px;
+}
+.smicon{
+    margin-right: 15px;
+}
+.resume-button{
+    margin-top: 20px;
+    background-color: grey;
+}
+.resume-button a{
+    color: black;
+    font-size: 18pt;
+    font-weight: bold;
+}
