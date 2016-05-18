@@ -1,6 +1,10 @@
 *{
     font-family: 'Poiret One', cursive;
 }
+.row{
+    border-bottom: solid;
+    border-bottom-width: 1pt;
+}
 .navbar-nav{
     font-size: 17pt;
     font-weight: bold;
@@ -10,10 +14,6 @@
     font-weight: bold;
     margin-right: 50px;
 }
-.navbar-brand a{
-
-}
-
 .navbar-nav > li > a, .navbar-brand {
     margin-top:20px !important;
     padding-top:20px !important;
@@ -82,10 +82,15 @@ h1{
 .resume-button{
     margin-top: 20px;
     background-color: #ECF0F1;
-    max-width: 300px;
+    max-width: 270px;
 }
 .resume-button a{
     color: black;
+    margin-left: 80px;
     font-size: 22pt;
     font-weight: 900;
+}
+.about-text{
+    margin-top: 20px;
+    font-size: 20pt;
 }
