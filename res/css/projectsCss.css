@@ -54,19 +54,15 @@ h1{
     -moz-border-radius: 50px;
     margin: auto;
 }
-.modal-img{
-    max-width: 450px;
-    max-height: 300px;
-    border-radius: 125px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    margin-left: 90px;
-}
 .non-img-car{
     color:white;
-    width:450px;
-    height: 300px;
+    max-width: 450px;
+    max-height: 300px;
+    font-size: 14pt;
+    padding-bottom: 0px;
+    margin: auto;
 }
+
 h2{
     font-size: 15pt;
     font-weight: bolder;
