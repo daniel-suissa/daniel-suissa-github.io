@@ -11,7 +11,8 @@
   <link href="../res/css/projectsCss.css" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
+  <div class="container" >
+    <!---style="height:400px"-->
       <!-- Static navbar -->
       <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -33,8 +34,8 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
-        <div class="row">
-          <h1>Projects</h1>
+        <h1>Projects</h1>
+        <div class="row" style="height:100%">
           <div class="p-list col-md-6 col-xs-12" style="display:table-cell; vertical-align:middle; text-align:center">
             <div id="pacman-carousel" class="carousel slide" data-ride="carousel" style:"margin:0" data-interval="false">
             <!-- Indicators -->
@@ -45,22 +46,14 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                   <div class="item active">
-                      <a href="#pacman-carousel" role="button" data-slide="prev"><img src="http://daniel-suissa.github.io/res/img/pacman-2.jpg" alt="pacman AI project" /></a>
+                      <a href="#pacman-carousel" role="button" data-slide="prev"><div  class="non-img-car"><img src="http://daniel-suissa.github.io/res/img/pacman-2.jpg" alt"pacman-img"></div></a>
                   </div>
                 <div class="item">
                   <a href="#pacman-carousel" role="button" data-slide="next">
-                    <div class="non-img-car" style="background-color:black;">
+                    <div class="non-img-car" id="pacman-txt">
                       <p>
                         </br>
                         text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text
-                      </br>
-                      </br>
-                      </br>
-                      </br>
-                      </br>
-                      </br>
-                      </br>
-                      </br>
                     </p>
                     </div>
                   </a>
@@ -80,22 +73,12 @@
                 <div id="carousel-container">
                 <div class="carousel-inner" role="listbox" >
                   <div class="item active">
-                      <a href="#eg-carousel" role="button" data-slide="prev"><img src="http://daniel-suissa.github.io/res/img/eg.png" alt="general engineering project" /></a>
+                      <a href="#eg-carousel" role="button" data-slide="prev"><div class="non-car-img"><img src="http://daniel-suissa.github.io/res/img/eg.png" alt="general engineering project" /></div></a>
                   </div>
                 <div class="item">
                   <a href="#eg-carousel" role="button" data-slide="next">
-                    <div class="non-img-car" style="background-color: #303030 ;">
+                    <div class="non-img-car" id="eg-txt">
                       <p>text text text text text text</p>
-                    </br>
-                    </br>
-                    </br>
-                    </br>
-                    </br>
-                    </br>
-                    </br>
-                    </br>
-                    </br>
-                    </br>
                     </div>
                   </a>
                 </div>
