@@ -5,6 +5,7 @@
     border-bottom: solid;
     border-bottom-width: 1pt;
 }
+
 .carousel-indicators
 {
     display: none;
@@ -47,21 +48,32 @@ h1{
 
 }
 .p-list img, .non-img-car{
-    max-width: 450px;
-    max-height: 300px;
-    border-radius: 125px;
+    width: 400px;
+    height: 250px;
+    border-radius: 50px;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     margin: auto;
+    color: white;
+    font-size: 14pt;
 }
+
+#pacman-txt{
+    background-color:black;*/
+}
+
+#eg-txt{
+    background-color: #303030 ;
+}
+/*
 .non-img-car{
     color:white;
     max-width: 450px;
     max-height: 300px;
-    font-size: 14pt;
+
     padding-bottom: 0px;
     margin: auto;
-}
+}*/
 
 h2{
     font-size: 15pt;
