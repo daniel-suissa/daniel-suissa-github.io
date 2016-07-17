@@ -1,10 +1,19 @@
 *{
     font-family: 'Poiret One', cursive;
 }
+h1{
+    margin-bottom: 50px;
+
+}
+.container{
+    padding-bottom: 70px;
+}
 .row{
     border-bottom: solid;
     border-bottom-width: 1pt;
 }
+
+/*navbar*/
 .navbar-nav{
     font-size: 17pt;
     font-weight: bold;
@@ -38,10 +47,8 @@
     border-right-color: transparent;
 
 }
-h1{
-    margin-bottom: 50px;
 
-}
+
 #sctxt{
     margin-top: 25px;
     margin-left: 15px;
@@ -94,3 +101,215 @@ h1{
     margin-top: 20px;
     font-size: 20pt;
 }
+
+/*progress-bars*/
+#progress-bars{
+    display: flex;
+}
+#skill1 #skill2 #skill3  {
+  margin: 20px;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  font-size: 18pt;
+
+}
+#progress-text{
+    position: absolute;
+    margin-top: 30px;
+}
+
+
+/*background intro */
+
+.intro_img{
+    background-size: cover;
+    height: 80vh;
+    width: 62%;
+}
+
+#intro_container{
+    padding: 0px;
+    height: 80vh;
+    width: 90%;
+    background-color: #391108;
+    position: relative;
+}
+
+
+#intro_1 {
+    background-image: url(../img/woman-hand-smartphone-desk.jpg);
+    -webkit-clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+}
+#intro_2{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    background-image: url(../img/pexels-photo-30732.jpg);
+    -webkit-clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(24% 0, 100% 0, 100% 100%, 0% 100%);
+}
+#title, #second-title{
+    position: absolute;
+    text-align: center;
+    font-weight: bolder;
+
+
+}
+#title{
+    font-size: 7vw;
+    bottom:5%;
+    left: 9%;
+    color: #1f3341;
+}
+#second-title{
+    font-size: 4vw;
+    bottom: 3%;
+    right: 1%;
+    color: white;
+}
+
+/*navigation bar*/
+#body{
+    margin-top: 50px;
+}
+
+.sticky {
+  position: fixed;
+  height
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  border-top: 0;
+}
+
+#navigation{
+    width: 90%;
+    height: 60px;
+    display: flex;
+    padding-left: 35%;
+    padding-right: 65%;
+    font-size: 30pt;
+    background-color:#27a5e3;
+
+}
+.navigation-link{
+    margin-right: 80px;
+    color: white;
+}
+
+#about, #projects{
+    padding-top: 100px;
+}
+
+
+/*animation */
+#animate-button{
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+#animate-button:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+#story{
+    padding-top: 100px;
+    position: relative;
+}
+#ghostpic{
+    position: absolute;
+    background-color: grey;
+    width: 100%;
+}
+#info-box{
+    position: relative;
+    height: 200px;
+}
+#ghostinfo{
+    position: absolute;
+    background-color: grey;
+    top: 0%;
+    width: 100%;
+    margin-right: 100px;
+}
+#picture , #line,  #story-info{
+    vertical-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 15pt;
+}
+#picture{
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+}
+#line{
+    height: 10px;
+    width: 200px;
+    background-color:#27a5e3;
+}
+
+#story-info{
+    font-size: 20pt;
+
+}
+
+/*form style*/
+#form{
+
+  display: block;
+}
+.input{
+    width: 50%;
+    font-size: 20pt;
+    padding:10px;
+    margin: 20px;
+    border-radius: 15px;
+    border-color: #27a5e3;
+
+    color :black;
+  }
+  #message-input{
+    width: 90%;
+    height: 200px;
+
+    cols:30;
+    rows:10;
+
+
+  }
+
+#send-button{
+  width : 150px;
+  color : white;
+  background-color: #95F2D9;
+  border: 0;
+  border-radius: 5px;
+  font-size: 20pt;
+  vertical-align: center;
+  margin-left: 75%;
+
+}
+
+input:focus, textarea:focus{
+  outline: none;
