@@ -5,36 +5,38 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Daniel Suissa</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
   <link href="res/css/style.css" rel="stylesheet">
+  <link href="res/css/projectsCss.css" rel="stylesheet">
+  <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js" ></script>
+  <script src="res/js/main.js"></script>
+
+
+
 </head>
 <body>
-  <div class="container">
+    <div class = "row" id="intro_container">
+      <div class="intro_img" id="intro_1"></div>
+      <div class="intro_img" id="intro_2" ></div>
+      <div id="title-text">
+        <p id="title">Daniel Suissa </p>
+        <p id="second-title" > Dream &nbsp; Design &nbsp; Create </p>
+      </div>
+   </div>
 
-      <!-- Static navbar -->
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" style="color:#27a5e3" href="#">Daniel Suissa</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a class="menulinks" href="#">Home</a></li>
-                <li><a class="menulinks" href="#">About</a></li>
-                <li><a class="menulinks" href="projects/index.html">Projects</a></li>
-                <li><a class="menulinks" href="#">Contact</a></li>
-              </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </nav>
-        <div class="row">
+   <nav id="navigation">
+      <a href="#about" class="navigation-link">About</a>
+      <a href="#projects" class="navigation-link">Projects</a>
+      <a href="#contact" class="navigation-link">Contact</a>
+   </nav>
+
+
+     <div id="body" class="container">
+        <div id="about" class="row">
+          <h1>About</h1>
           <div class="col-sm-4 col-sm-push-8">
             <div class="circular"></div>
             <div id="SMLinks">
@@ -47,7 +49,6 @@
           </div>
         </div>
           <div class="col-sm-8 col-sm-pull-4">
-            <h1>About</h1>
           <div class="quickInfo">
             <img src="http://daniel-suissa.github.io/res/img/school1.png" alt="school icon">
             <div id="sctxt">NYU Tandon School of Engineering</div>
@@ -60,15 +61,105 @@
             <img src="http://daniel-suissa.github.io/res/img/binary.png" alt="binary icon">
             <div id="sctxt">C++, Python, HTML/CSS</div>
           </div>
+          <div class="quickInfo">
+            <img src="http://daniel-suissa.github.io/res/img/gears.png" alt="gears icon">
+            <div id="sctxt">Android Studio, Bootstrap, Tensorflow</div>
+          </div>
         </div>
       </div>
-      <div class="about-text">This is a text about me that I should prbly start writing. It should be about 1 paragraph long and describe who I am and my hopes and dreams. By this point I'm just writing to fill up space. Space...can we really "fill up" space? physically for every atom there's a huge amount of vaccum, so really even the space that we're filling is empty. Ok, I think that's about enough for now.
+      <div class="row" id="story">
+          <button id="animate-button" onClick="animation();">Get to the Point!</button>
+          <div id="ghostpic"></div>
+          <div id="picture">
+          </div>
+          <div id="line"></div>
+          <div id="info-box">
+            <div id="ghostinfo"></div>
+            <div id="story-info"></div>
+          </div>
+          <div class="about-text">This is a text about me that I should prbly start writing. It should be about 1 paragraph long and describe who I am and my hopes and dreams. By this point I'm just writing to fill up space. Space...can we really "fill up" space? physically for every atom there's a huge amount of vaccum, so really even the space that we're filling is empty. Ok, I think that's about enough for now.
+        </div>
       </div>
+      <!--
+      <div class = "row" id="progress-bars">
+        <div class="radial-progress" id = "skill1"></div>
+        <div class="radial-progress" id = "skill2"></div>
+        <div class="radial-progress" id = "skill3"></div>
+        <div class="radial-progress" id = "skill4"></div>
+        </div>
+      -->
+      <div id="projects" class="row">
+              <h1>Projects</h1>
+              <div class="row" style="height:100%">
+                <div class="p-list col-md-6 col-xs-12" style="display:table-cell; vertical-align:middle; text-align:center">
+                  <div id="pacman-carousel" class="carousel slide" data-ride="carousel" style:"margin:0" data-interval="false">
+                  <!-- Indicators -->
+                      <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                      </ol>
+                      <!-- Wrapper for slides -->
+                      <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <a href="#pacman-carousel" role="button" data-slide="prev"><div  class="non-img-car"><img src="http://daniel-suissa.github.io/res/img/pacman-2.jpg" alt"pacman-img"></div></a>
+                        </div>
+                      <div class="item">
+                        <a class = "invisible-link" href="#pacman-carousel" role="button" data-slide="next" >
+                          <div class="non-img-car" id="pacman-txt">
+                                <p>
+                                  </br>
+                                  AI for a Pacman game (provided by </a> <a href="http://ai.berkeley.edu/project_overview.html">UC Berkely CS188 course</a><a class="invisible-link" href="#pacman-carousel" role="button" data-slide="next">), using a game state decision tree. See the project description and my team's GitHub profiles </a> <a href="https://github.com/CS1122/zt438_ay1089_wb703_ds4676_zm686-project">in this repo</a><a class="invisible-link" href="#pacman-carousel" role="button" data-slide="next">
+                              </p>
+                          </div>
+                         </div>
+                      </a>
+                    </div>
+                  </div>
+                  <h2>Pacman AI Agents</h2>
+                </div>
+                <div class="p-list col-md-6 col-xs-12" style="display:table-cell; vertical-align:middle; text-align:center">
+                  <div id="eg-carousel" class="carousel slide" data-ride="carousel" style:"margin:0" data-interval="false">
+                  <!-- Indicators -->
+                      <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                      </ol>
+                      <!-- Wrapper for slides -->
+                      <div id="carousel-container">
+                      <div class="carousel-inner" role="listbox" >
+                        <div class="item active">
+                            <a href="#eg-carousel" role="button" data-slide="prev"><div class="non-car-img"><img src="http://daniel-suissa.github.io/res/img/eg.png" alt="general engineering project" /></div></a>
+                        </div>
+                      <div class="item">
+                        <a href="#eg-carousel" role="button" data-slide="next">
+                          <div class="non-img-car" id="eg-txt">
+                            <p>text text text text text text</p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  <h2>Retrieval/Delivery Robot</h2>
+                </div>
+            </div>
+          </div>
+          <div id="contact" class="row">
+              <h1>Contact</h1>
+              <h2>Let's make something!</h2>
+              <form class="form" method="POST" action="https://formspree.io/suissa.daniel@gmail.com">
+                  <input class="input" placeholder="Name" required>
+                  <input class="input" placeholder="Email" required>
+                  <textarea id="message-input" class="input" placeholder="Message" required></textarea>
+                  <button id="send-button ">Send</button>
+              </form>
+          </div>
     </div> <!-- /container -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
 </body>
 </html>
