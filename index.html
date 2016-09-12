@@ -9,15 +9,17 @@
   <!--
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   -->
-  <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
   <link href='https://fonts.googleapis.com/css?family=Noticia+Text' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Quicksand|Raleway|Yanone+Kaffeesatz" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" type="text/css">
 
   <link href="res/css/style.css" rel="stylesheet">
+  <link href="res/css/grid.css" rel="stylesheet">
 
+  <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js" ></script>
   <script src="res/js/main.js"></script>
   <script src="res/js/modernizr.js"></script>
 
@@ -26,8 +28,10 @@
 </head>
 <body>
     <div class = "row" id="intro_container">
-      <div class="intro_img" id="intro_1"></div>
-      <div class="intro_img" id="intro_2" ></div>
+    
+    <div class="intro_img" id="intro_1"></div>
+    <div class="intro_img" id="intro_2" ></div>
+      
 
         <p id="title">Daniel Suissa </p>
         <div id="second-title" >
@@ -58,18 +62,41 @@
 
 
    <div class="row-adjustable-center1">
-   <div class="row-adjustable-center2">
-        <a class="smicon" href="https://www.linkedin.com/in/daniel-suissa-690823113"><img src="http://daniel-suissa.github.io/res/img/linkedin_4096_black.png" alt="linkedin icon" /></a>
-        <a class="smicon" href="https://github.com/daniel-suissa"><img src="http://daniel-suissa.github.io/res/img/Octicons-mark-github.svg.png" alt="github icon" /></a>
-        <a class="smicon" href="https://www.facebook.com/daniel.suissa.90"><img src="http://daniel-suissa.github.io/res/img/facebook-xxl.png" alt="facebook icon" /></a>
+   <div id="social-media-links" class="row-adjustable-center2">
+        <a class="smicon" href="https://www.linkedin.com/in/daniel-suissa-690823113"><img src="res/img/linkedin_4096_dark.png" alt="linkedin icon" /></a>
+        <a class="smicon" href="https://github.com/daniel-suissa"><img src="res/img/Octicons-mark-github.sv-dark.png" alt="github icon" /></a>
     </div>
   </div>
-  <a name="about-anchor"/>
+
+  
+  <a name="about-anchor"></a>
   <div id="about" class="row-wide-center">
       <h1>About</h1>
-      <p class="about-text">Hello visitor! My name is Daniel Suissa, and I am happy to welcome you to my personal playing field. I am an IDF (Israel Defence Forces) ex-officer who grew up loving improving upon what comes my way. From high school to military to college at NYU, what stuck with me always is the love of people and love of learning. From organizing trips, military education programs and parties, to self learning full stack web design, juggling, guitar, and machine learning, I never let a second go to waste.
+      <p class="about-text">I am a computer science major in New York University. I grew up in Tel-Aviv, Israel and in many ways strive to epitomize the popular Israeli word “tachles”. Tachles connotes a straightforward and goal oriented approach to life and I incorporate this sentiment into my professional aspirations as well. Computer coding and programming is an area that I have found success in because it appeals to my ardor for self-learning and ability to dedicate myself to creating projects to work on either independently or in a teamwork setting. My experiences have taught me how to problem solve and quickly extrapolate information about a task and how to best complete it as the job requires.
       </p>
-  </div>
+  
+    <div class="flexrow" id="quick-info-icons">
+          <div class="fixed-col-md-6">
+            <div class="quickInfo">
+              <img src="res/img/school1.png" alt="school icon">
+              <p id="sctxt">NYU Tandon School of Engineering</p>
+            </div>
+            <div class="quickInfo">
+              <img src="http://daniel-suissa.github.io/res/img/major.png" alt="major icon">
+              <p id="sctxt">Computer Science</p>
+            </div>
+          </div>
+          <div class="fixed-col-md-6">
+            <div class="quickInfo">
+              <img src="res/img/binarydark.jpg" alt="binary icon">
+              <p id="sctxt">C++, Python, JavaScript, HTML/CSS</p>
+            </div>
+            <div class="quickInfo">
+              <img src="res/img/gearswhite.png" alt="gears icon">
+              <p id="sctxt">iOS, Node.js, Bootstrap, JQuery</p>
+            </div>
+          </div>
+    </div>
   <h1>Skills</h1>
 
   <div class="flexrow" >
@@ -83,10 +110,11 @@
         </div>
         <div class="skillset">
           <img src="res/img/webdesign.png">
-          <p class="skill-title">Web Developing</p>
+          <p class="skill-title">Web Development</p>
           <p>Using the skills I acquired to create beautiful functional applications and websites is highly gratifying. On top of learning HTML & CSS, I'm growing more fond of using Javascript magic to enrich my projects. For backend I use PHP5</p>
         </div>
     </div>
+    <div class="seperator"></div>
     <div class="col-md-6 col-xs-12 skillset-container">
         <div class="skillset">
           <img src="res/img/datamanagement.png">
@@ -100,64 +128,111 @@
         </div>
       </div>
   </div>
-
-
-
-
-  <div class="flexrow">
-        <div class="col-md-6">
-            <div class="quickInfo">
-              <img src="http://daniel-suissa.github.io/res/img/school1.png" alt="school icon">
-              <p id="sctxt">NYU Tandon School of Engineering</p>
-            </div>
-            <div class="quickInfo">
-              <img src="http://daniel-suissa.github.io/res/img/major.png" alt="major icon">
-              <p id="sctxt">Computer Science</p>
-            </div>
-            <div class="quickInfo">
-              <img src="res/img/binarydark.jpg" alt="binary icon">
-              <p id="sctxt">C++, Python, HTML/CSS</p>
-            </div>
-            <div class="quickInfo">
-              <img src="http://daniel-suissa.github.io/res/img/gears.png" alt="gears icon">
-              <p id="sctxt">Android Studio, Bootstrap, Tensorflow</p>
-            </div>
-          </div>
-        <div class="col-md-6">
-          <div class="resume-button">
-              <a href="#" class="text-uppercase">Resume</a>
-        </div>
+  
+  <div id="resume">
+    <div class="resume-wrapper">
+    <a href="#" id="resume-link" class="double-line"><span>Resume</span></a>   
     </div>
   </div>
+<!--
+  <div class="row-wide-center">
+    <h1>Story</h1>
+    <div id="story-container">
+        <div id="left-side-story">
+          <div id="left-item" onClick="startStory();" style="cursor:pointer;">
+            <p class="left-story-p"> Click Here to See Resume </p>
+          </div>
+        </div>
+        <div id="right-side-story">
+          <div id="right-item"></div>
+      </div>
+    </div>
+  </div>
+-->      
 
-      <a name="projects-anchor"/>
+</div> <!--end of about-->
+      <!--
+      <div class="row" id="story">
+          <button id="animate-button" onClick="animation();">Get to the Point!</button>
+          <div id="ghostpic"></div>
+          <div id="picture">
+          </div>
+          <div id="line"></div>
+          <div id="info-box">
+            <div id="ghostinfo"></div>
+            <div id="story-info"></div>
+          </div>
+
+      </div>
+      <div class = "row" id="progress-bars">
+        <div class="radial-progress" id = "skill1"></div>
+        <div class="radial-progress" id = "skill2"></div>
+        <div class="radial-progress" id = "skill3"></div>
+        <div class="radial-progress" id = "skill4"></div>
+        </div>
+      -->
+      <a name="projects-anchor"></a>
       <h1>Projects</h1>
-        <div id="projects" class="flexrow">
-          <div  class="project-card col-md-6">
-            <div class="img">
-              <img src="http://daniel-suissa.github.io/res/img/pacman-2.jpg" >
-              <div id="card-1" class="overlay">
-                <a href="#" class="expand">+</a>
-                <p>
-                  AI for a Pacman game (provided by <a href="http://ai.berkeley.edu/project_overview.html">UC Berkely CS188 course</a>), using a game state decision tree. See the project description and my team's GitHub profiles <a href="https://github.com/CS1122/zt438_ay1089_wb703_ds4676_zm686-project">in this repo</a>
-                </p>
-                <a "close-overlay hidden"></a>
-              </div>
-          </div>
-        </div>
+        <div id="projects">
+            <div class="flexrow">
+              <div  class="col-md-6 project-card">
+                  <div class="img">
+                    <img src="res/img/pacman-2.jpg" >
+                    <div id="card-1" class="overlay">
+                      <a href="https://github.com/CS1122/zt438_ay1089_wb703_ds4676_zm686-project" class="expand">+</a>
+                      <p>
+                        AI for a Pacman game (provided by <a href="http://ai.berkeley.edu/project_overview.html">UC Berkely CS188 course</a>), using a game state decision tree. Click on the "+" to see the project description and my team's repo
+                      </p>
+                      <a "close-overlay hidden"></a>
+                    </div>
+                  </div>
+            </div>
+              <div class="col-md-6 project-card">
+                  <div class="img">
+                    <img src="http://daniel-suissa.github.io/res/img/eg.png">
+                    <div id="card-2" class="overlay">
+                      <a href="https://youtu.be/4CkaOTJ-BcI" class="expand">+</a>
+                      <p>
+                        LEGO Mindstorms powered delivery robot. Utilizing two motors, a light sensor, a gyro sensor, and a lot of LEGO pieces, two of my friends (Anvita Hodekar and Ana Sepetovska) designed this device that imitates an emergency fuel delivery system. The ping-pong balls on the board represent fuel cells, and the baskets different hospitals across the city.
+                        Click on the "+" to see the video.
+                      </p>
+                      <a "close-overlay hidden"></a>
+                    </div>
+                </div>
+            </div>
 
-          <div class="project-card col-md-6">
-            <div class="img">
-              <img src="http://daniel-suissa.github.io/res/img/eg.png">
-              <div id="card-2" class="overlay">
-                <a href="#" class="expand">+</a>
-                <p>
-                  a little Mindtorms projects that my friends and I have created to pick up fuel cells from a black board
-                </p>
-                <a "close-overlay hidden"></a>
-              </div>
           </div>
-        </div>
+
+          <!--need to be filled out-->
+          <div class="flexrow">
+              <div  class="project-card col-md-6">
+                <div class="img">
+                  <img src="res/img/websitescsht.png" >
+                  <div id="card-3" class="overlay">
+                    <a href="https://github.com/daniel-suissa/daniel-suissa.github.io" class="expand">+</a>
+                    <p style="text-align: center">This Site</p>
+                    <p>
+                        This website is my front-end playground. Everything you see here is purely my HTML/CSS & JavaScript. Except for the emailing service, no prebuilt resource was used in the source code. Click on the "+" to see everythibg on GitHub.
+                    </p>
+                    <a "close-overlay hidden"></a>
+                  </div>
+              </div>
+            </div>
+
+              <div class="project-card col-md-6">
+                <div class="img">
+                  <img src="res/img/TaskMate.png">
+                  <div id="card-4" class="overlay">
+                    <a href="https://github.com/daniel-suissa/TaskMate" class="expand">+</a>
+                    <p>
+                      TaskMate is a web & iOS application that uses Google Calendar API along with a user defined task to optimize a schedule based on the importance, duration, and urgency of the tasks.
+                    </p>
+                    <a "close-overlay hidden"></a>
+                  </div>
+              </div>
+            </div>
+            
+          </div>
 
       </div>
 
@@ -178,7 +253,7 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
 
 </body>
 </html>
