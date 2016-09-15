@@ -231,9 +231,12 @@ h1{
 /*abouts*/
 
 #sctxt{
-  font-family: 'Open Sans Condensed', sans-serif;
+    margin-top: 5px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    margin-left: 15px;
+    font-size: 14pt;
+    font-weight: 600;
 }
-
 
 .smicon img{
     margin-right: 20px;
@@ -270,7 +273,7 @@ h1{
 .skillset{
   text-align: center;
   width:12vw;
-  min-width: 180px;
+  min-width: 150px;
   font-size: 14pt;
   margin-right:7%;
   margin-left: 7%;
@@ -297,10 +300,16 @@ h1{
 @media (max-width: 500px){
   .skillset{
     font-size: 12pt;
+    margin-right:3%;
+    margin-left: 3%;
   }
   .skill-title{
     font-size: 18pt;
   }
+  #sctext{
+    margin-top:0;
+  }
+
 }
 
 @media only screen 
@@ -311,12 +320,7 @@ h1{
 
 }
 
-#sctxt{
-    margin-top: 25px;
-    margin-left: 15px;
-    font-size: 14pt;
-    font-weight: 600;
-}
+
 #quick-info-icons{
   display: flex;
 }
@@ -329,15 +333,6 @@ h1{
     width:70px; /* you can use % */
     height: 70px;
 }
-.circular {
-    margin-top: 40px;
-    width: 250px;
-    height: 250px;
-    border-radius: 125px;
-    -webkit-border-radius: 125px;
-    -moz-border-radius: 125px;
-    background: url(http://daniel-suissa.github.io/res/img/profile.png) no-repeat;
-    }
 
 .about-text{
     margin-top: 20px;
@@ -357,6 +352,18 @@ h1{
     
   }
 }
+@media (max-width:500px){
+  .quickInfo{
+    display: block;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 0px;
+    
+  }
+
+}
+
+
 
 
 .double-line {
@@ -561,8 +568,8 @@ h1{
   width: 40vw;
   height: 22vw;
   overflow: hidden;
-  min-width: 450px;
-  min-height: 280px;
+  min-width: 370px;
+  min-height: 210px;
 }
 .img:nth-child(n) {
   margin-right: 5px;
@@ -597,7 +604,13 @@ h1{
   text-decoration: underline;
 }
 .overlay p{
-  margin: 10px;
+  margin: 20px;
+}
+
+@media (max-width: 992px){
+  .overlay{
+    font-size: 14pt;
+  }
 }
 
 a.close-overlay {
