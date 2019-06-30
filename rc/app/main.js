@@ -18,7 +18,14 @@ require(['./Interface', './config'], function(Interface, config) {
 			sk.background(config.backgroundColor)
 			intfc.draw(sk)
 		}
+
 		sk.mousePressed = () => {
+			console.log("mousePressed")
+			intfc.mousePressed()
+		}
+
+		sk.touchStarted = () => {
+			console.log("touchStarted")
 			intfc.mousePressed()
 		}
 	}

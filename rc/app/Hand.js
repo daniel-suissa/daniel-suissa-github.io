@@ -33,6 +33,7 @@ define(['./config'], function(config) {
 				return
 			}
 
+			this.rotation = 0
 			const x1 = this.x - Math.cos(this.rotation) * this.baseWidth/2
 			const y1 = this.y - Math.sin(this.rotation) * this.baseWidth/2
 			const x2 = this.x + Math.cos(this.rotation) * this.baseWidth/2
