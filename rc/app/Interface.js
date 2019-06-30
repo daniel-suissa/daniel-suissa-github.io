@@ -12,7 +12,6 @@ define(['./Wheel', './Hand', './config'], function (Wheel, Hand, config) {
 			this.stepRadius = config.wheelsConfig.stepRadius
 			this.wheelColors = config.wheelsConfig.colors
 			this.wheelBases = config.wheelsConfig.bases
-			this.wheelBeatTypes = config.wheelsConfig.beatTypes
 			
 			
 			this.createWheels();
@@ -44,10 +43,15 @@ define(['./Wheel', './Hand', './config'], function (Wheel, Hand, config) {
 										yCenter, 
 										radius,
 										this.wheelColors[i], 
-										this.wheelBases[i],
-										this.wheelBeatTypes[i])
+										this.wheelBases[i])
 				this.wheels.push(wheel)
 			}
+		}
+
+		preload() {
+			this.wheels.forEach( (wheel) => {
+				wheel.preload()
+			})
 		}
 
 		draw() {

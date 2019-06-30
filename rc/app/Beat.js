@@ -1,46 +1,49 @@
-define(['./config'], function(config) {
-	class BeatType {
-		constructor(sk, name, src, color, radius, swellRadius=null, strokeColor=null, strokeWeight=null) {
-			this.name = name
-			if (src != '') {
-			    this.sound = sk.loadSound(src)
-			} else {
-				this.sound = null
-			}
-			this.color = color
-			this.radius = radius
-			this.swellRadius = swellRadius
-			this.strokeColor = strokeColor
-			this.strokeWeight = strokeWeight
-		}
-	}
-
+define(['./BeatType'], function(beatTypes) {
 	class Beat {
-		constructor(sk, type, radians) {
+		constructor(sk, radians) {
 			this.sk = sk
 			this.radians = radians
-			this.onType = new BeatType(sk, 
-								type, 
-								config.beatsConfig.types[type].sound, 
-								config.beatsConfig.types[type].color, 
-								config.beatsConfig.types[type].radius,
-								config.beatsConfig.types[type].swellRadius)
-			this.offType = new BeatType(sk, 
-				'nullBeat',
-				'',
-				config.beatsConfig.nullBeat.color,
-				config.beatsConfig.nullBeat.radius,
-				config.beatsConfig.nullBeat.strokeColor,
-				config.beatsConfig.nullBeat.strokeWeight
-				)
-			this.type = this.offType
+			this.typeIndex = -1
+			this.currType = null
+			this.currSound = null
+			this.nextType()
 			this.enabled = true
 			this.isPlaying = false
-			this.setSoundOnEndedCallback(this)
+			this.sounds = null
 		}
 		
-		setSoundOnEndedCallback (that) {
-			this.onType.sound.onended( () => {
+		incrementTypeIndex() {
+			this.typeIndex = (this.typeIndex + 1) % beatTypes.length
+		}
+
+		preload() {
+			//create an array of preloaded sounds. one for each type
+			//must be called before draw
+			this.sounds = []
+			for(var i = 0; i < beatTypes.length; i++) {
+				if (beatTypes[i].src != '') {
+					let sound = this.sk.loadSound(beatTypes[i].src)
+					this.sounds.push(sound)
+					this.setSoundOnEndedCallback(sound, this)
+				} else {
+					//element won't be used but we want to preserve the index parallel
+					this.sounds.push(null)
+				}
+			}
+		}
+
+		nextType() {
+			this.incrementTypeIndex()
+			this.currType = beatTypes[this.typeIndex]
+			this.enabled = true
+			this.isPlaying = false
+			if (this.sounds != null) {
+				this.currSound = this.sounds[this.typeIndex]
+			}
+		}
+
+		setSoundOnEndedCallback (sound, that) {
+			sound.onended( () => {
 				that.isPlaying = false
 			})
 		}
@@ -49,41 +52,39 @@ define(['./config'], function(config) {
 			this.x = x
 			this.y = y
 
-			this.drawShockWave(x, y)
+			if (this.isPlaying) {
+				this.swell(x, y)
+			}
 
-			this.sk.fill(this.type.color)
-			if (this.type.strokeColor) {
-				this.sk.stroke(this.type.strokeColor)
-				this.sk.strokeWeight(this.type.strokeWeight)
+			this.sk.fill(this.currType.color)
+			if (this.currType.strokeColor) {
+				this.sk.stroke(this.currType.strokeColor)
+				this.sk.strokeWeight(this.currType.strokeWeight)
 			} else {
 				this.sk.noStroke()
 			}
-			this.sk.circle(x,y,this.type.radius)
-			
-			
+			this.sk.circle(x,y, this.currType.radius)	
 		}
 
-		drawShockWave(x, y) {
-			if (this.isPlaying) {
-				const portion = this.onType.sound.currentTime() / 
-								this.onType.sound.duration()
-				
-				const radius = this.onType.radius + 
-								Math.sin(Math.PI * portion) * 
-								(this.onType.swellRadius - this.onType.radius)
+		swell(x, y) {
+			const portion = this.currSound.currentTime() / 
+							this.currSound.duration()
 
-				this.sk.fill(this.onType.color)
-				this.sk.noStroke()
+			const radius = this.currType.radius + 
+							Math.sin(Math.PI * portion) * 
+							(this.currType.swellRadius - this.currType.radius)
 
-				this.sk.circle(x,y,radius);
-			}
+			this.sk.fill(this.currType.color)
+			this.sk.noStroke()
+
+			this.sk.circle(x,y,radius);
 		}
 
 		play() {
-			if (this.enabled && this.type == this.onType) {
+			if (this.enabled && this.currSound) {
 				try {
 					this.isPlaying = true
-					this.onType.sound.play()
+					this.currSound.play()
 				} catch (err) {
 					console.log(err)
 				}
@@ -95,12 +96,7 @@ define(['./config'], function(config) {
 			if (this.isPlaying) {
 				return
 			}
-
-			if (this.type == this.offType) {
-				this.type = this.onType
-			} else {
-				this.type = this.offType
-			}
+			this.nextType()
 			this.play()
 		}
 
