@@ -5,24 +5,19 @@ define(['./Wheel', './Hand', './config'], function (Wheel, Hand, config) {
 			this.sk = sk
 			this.wheels = [];
 			this.width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-			this.height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-			
-			this.wheel_amt = config.wheelsConfig.amount
-			this.baseRadius = config.wheelsConfig.baseRadius
-			this.stepRadius = config.wheelsConfig.stepRadius
-			this.wheelColors = config.wheelsConfig.colors
-			this.wheelBases = config.wheelsConfig.bases
-			
-			
+			this.height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);			
 			this.createWheels();
 			this.createHand();
+
+			this.rpmSlider = null
+			this.lastPressedObj = null
 		}
 
 		createHand() {
 			// should only happen after createWheels
 			const xCenter = this.width / 2;
 	    	const yCenter = this.height / 2;
-			const length = this.baseRadius + (this.wheel_amt - 1 ) * this.stepRadius
+			const length = this.wheels[this.wheels.length - 1].radius
 
 			this.hand = new Hand(this.sk, 
 				xCenter, 
@@ -36,14 +31,12 @@ define(['./Wheel', './Hand', './config'], function (Wheel, Hand, config) {
 			const xCenter = this.width / 2;
 	    	const yCenter = this.height / 2;
 			
-			for (var i = 0; i < this.wheel_amt ; i++) {
-				let radius = this.baseRadius + this.stepRadius * i
+			for (var i = 0; i < config.wheelsConfig.wheels.length ; i++) {
+				const wheelConfig = config.wheelsConfig.wheels[i]
 				let wheel = new Wheel(this.sk, 
 										xCenter, 
 										yCenter, 
-										radius,
-										this.wheelColors[i], 
-										this.wheelBases[i])
+										wheelConfig)
 				this.wheels.push(wheel)
 			}
 		}
@@ -56,11 +49,23 @@ define(['./Wheel', './Hand', './config'], function (Wheel, Hand, config) {
 
 		draw() {
 			//draw wheels outside-in
-			for (var i = this.wheel_amt - 1; i > -1 ; i--) {
+			for (var i = this.wheels.length - 1; i > -1 ; i--) {
 				this.wheels[i].draw()
 			}
+			this.hand.draw(this.rpmSlider.value())
+			this.sk.fill(0);
+		    this.sk.textSize(18);
+		    this.sk.color('#000000')
+		    this.sk.text('RPM', 100, this.height - 20);
+		}
 
-			this.hand.draw()
+		setup() {
+			this.sk.colorMode(this.sk.HSB);
+		    this.rpmSlider = this.sk.createSlider(20, 100, config.handConfig.defaultRpm);
+		    this.rpmSlider.position(100, config.interfaceHeight - 50);	
+		    this.wheels.forEach((wheel) => {
+		    	wheel.setup()
+		    })	    
 		}
 
 		getIntersectObj(x, y) {
@@ -75,11 +80,25 @@ define(['./Wheel', './Hand', './config'], function (Wheel, Hand, config) {
 
 
 		mousePressed() {
-			let obj = this.getIntersectObj(this.sk.mouseX, this.sk.mouseY)
+			//console.log(`pressed ${this.sk.mouseX} ${this.sk.mouseY}`)
+			this.lastPressedObj = this.getIntersectObj(this.sk.mouseX, this.sk.mouseY)
 
-			if (obj != null) {
-				obj.clickAction(this.sk.mouseX, this.sk.mouseY)
+			if (this.lastPressedObj != null) {
+				this.lastPressedObj.mousePressed(this.sk.mouseX, this.sk.mouseY)
 			}
+		}
+
+		mouseReleased() {
+			if(!this.lastPressedObj) return
+			//console.log(`released ${this.sk.mouseX} ${this.sk.mouseY}`)
+			this.lastPressedObj.mouseReleased(this.sk.mouseX, this.sk.mouseY)
+			this.lastPressedObj = null
+		}
+
+		mouseDragged() {
+			if(!this.lastPressedObj) return
+			//console.log(`dragged ${this.sk.mouseX} ${this.sk.mouseY}`)
+			this.lastPressedObj.mouseDragged(this.sk.mouseX, this.sk.mouseY)
 		}
 	}
 	return Interface

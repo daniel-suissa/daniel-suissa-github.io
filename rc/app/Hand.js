@@ -11,11 +11,11 @@ define(['./config'], function(config) {
 			this.x = x
 			this.y = y
 			this.length = length
-			this.rpm = config.handConfig.defaultRpm
 
 			this.rotation = 0
 			this.wheels = wheels
 		}
+
 		position(canvas) {
 			// place hand in the middle of the canvas
 			const {top, left} = this.container.position(); 
@@ -24,8 +24,8 @@ define(['./config'], function(config) {
 				left: left + this.container.width() / 2})
 		}
 
-		draw() {
-			const rps = (this.rpm / SECS_IN_MIN) 
+		draw(rpm) {
+			const rps = (rpm / SECS_IN_MIN) 
 			const fps = this.sk.frameRate()
 			const step = rps * 2 * Math.PI / fps
 			if (step > 10) {
@@ -33,7 +33,6 @@ define(['./config'], function(config) {
 				return
 			}
 
-			this.rotation = 0
 			const x1 = this.x - Math.cos(this.rotation) * this.baseWidth/2
 			const y1 = this.y - Math.sin(this.rotation) * this.baseWidth/2
 			const x2 = this.x + Math.cos(this.rotation) * this.baseWidth/2
@@ -41,8 +40,9 @@ define(['./config'], function(config) {
 			const x3 = this.x + Math.sin(this.rotation) * this.length
 			const y3 = this.y - Math.cos(this.rotation) * this.length
 
-			this.sk.triangle(x1,y1,x2,y2,x3,y3)
 			this.sk.fill(this.color)
+			this.sk.triangle(x1,y1,x2,y2,x3,y3)
+			
   			/*this.sk.line(this.x, this.y, 
   				this.x + Math.sin(this.rotation) * this.length, 
   				this.y - Math.cos(this.rotation) * this.length);*/
@@ -67,12 +67,13 @@ define(['./config'], function(config) {
 		}
 
 		isBeatHit(beat) {
-			const distanceFromBeat = Math.abs(this.rotation - beat.radians) 
-			if (distanceFromBeat < 0.06) {
+			const deltaFromBeat = Math.abs(this.rotation - beat.radians) 
+			if (deltaFromBeat < 0.1) {
 				return true
 			} 
 			return false
 		}
+
 	}
 	return Hand
 })

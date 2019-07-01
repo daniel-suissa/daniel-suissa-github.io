@@ -1,14 +1,18 @@
 define(['./BeatType'], function(beatTypes) {
 	class Beat {
-		constructor(sk, radians) {
+		constructor(sk, radians, typeName=null) {
 			this.sk = sk
 			this.radians = radians
+			this.defaultType = typeName
+			this.enabled = true
+			this.isPlaying = false
+
+			//initiazlied during setup
 			this.typeIndex = -1
 			this.currType = null
 			this.currSound = null
-			this.nextType()
-			this.enabled = true
-			this.isPlaying = false
+
+			//initialized during preload
 			this.sounds = null
 		}
 		
@@ -29,6 +33,30 @@ define(['./BeatType'], function(beatTypes) {
 					//element won't be used but we want to preserve the index parallel
 					this.sounds.push(null)
 				}
+			}
+		}
+
+		setup() {
+			// actualize initial beat type
+			if(this.defaultType) {
+				this.typeIndex = beatTypes.findIndex((type) => {
+					return type.name == this.defaultType
+				})
+			} else {
+				this.typeIndex = 0
+			}
+			
+			this.currType = beatTypes[this.typeIndex]
+			this.currSound = null
+			this.currSound = this.sounds[this.typeIndex]
+		}
+
+		addRadians(rotation) {
+			this.radians += rotation
+			if (this.radians > 2 * Math.PI) {
+				this.radians = 0
+			} else if (this.radians < 0) {
+				this.radians += 2 * Math.PI
 			}
 		}
 
@@ -56,24 +84,23 @@ define(['./BeatType'], function(beatTypes) {
 				this.swell(x, y)
 			}
 
-			this.sk.fill(this.currType.color)
+			
 			if (this.currType.strokeColor) {
 				this.sk.stroke(this.currType.strokeColor)
 				this.sk.strokeWeight(this.currType.strokeWeight)
 			} else {
 				this.sk.noStroke()
 			}
+			this.sk.fill(this.currType.color)
 			this.sk.circle(x,y, this.currType.radius)	
 		}
 
 		swell(x, y) {
 			const portion = this.currSound.currentTime() / 
 							this.currSound.duration()
-
 			const radius = this.currType.radius + 
 							Math.sin(Math.PI * portion) * 
 							(this.currType.swellRadius - this.currType.radius)
-
 			this.sk.fill(this.currType.color)
 			this.sk.noStroke()
 
@@ -91,8 +118,7 @@ define(['./BeatType'], function(beatTypes) {
 			}
 		}
 
-
-		clickAction(_x, _y) {
+		mousePressed(_x, _y) {
 			if (this.isPlaying) {
 				return
 			}
@@ -100,6 +126,10 @@ define(['./BeatType'], function(beatTypes) {
 			this.play()
 		}
 
+		mouseReleased(_x, _y) {}
+
+		mouseDragged(_x, _y) {}
+		
 		disable() {
 			this.enabled = false
 		}
